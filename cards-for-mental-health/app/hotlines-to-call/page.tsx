@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { SidebarLayout } from "@/components/SidebarLayout"
 import { Phone, MessageSquare } from 'lucide-react'
+import Image from 'next/image'
 
 export default function HotlinesPage() {
   return (
@@ -8,10 +9,22 @@ export default function HotlinesPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-emerald-800 to-green-700">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
-        <div className="container relative mx-auto px-4 py-16 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none">
-            Hotlines to Call
-          </h1>
+        <div className="container relative mx-auto px-4 py-16 sm:py-20 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center gap-8 sm:justify-between pt-8 sm:pt-0">
+            <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none">
+              Hotlines to Call
+            </h1>
+            <div className="w-28 sm:w-36 lg:w-48 lg:mr-20">
+              <Image 
+                src="/cards4mentalhealth.png"
+                alt="Cards for Mental Health Logo"
+                width={200}
+                height={200}
+                className="relative w-full h-auto"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 
