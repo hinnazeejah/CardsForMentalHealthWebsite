@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Brain, Heart, Send } from 'lucide-react'
 import Link from "next/link"
+import { Navigation } from "@/components/Navigation"
+import { SidebarLayout } from "@/components/SidebarLayout"
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+    <SidebarLayout>
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-emerald-800 to-green-700">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
@@ -21,14 +23,18 @@ export default function Page() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" variant="secondary">
-                  Get Involved
-                  <Heart className="ml-2 h-4 w-4" />
-                </Button>
+                <Link href="/ways-to-get-involved">
+                  <Button size="lg" variant="secondary">
+                    Get Involved
+                    <Heart className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              <Link href="/tips-for-helping-people">
                 <Button size="lg" variant="outline" className="bg-white/10">
                   Learn More
                 </Button>
-              </div>
+              </Link>
+            </div>
             </div>
             <div className="hidden lg:block">
               <div className="relative h-full">
@@ -67,7 +73,7 @@ export default function Page() {
               <p className="leading-relaxed text-muted-foreground">
                 At Cards For Mental Health for Long Island, our mission is to provide comfort and hope to those facing mental
                 health challenges during their hospital stay. We believe that small acts of kindness can make a big difference
-                in someone&apos;s day. Through our handmade cards, we aim to bring a little bit of joy and remind people that
+                in someones day. Through our handmade cards, we aim to bring a little bit of joy and remind people that
                 they are not alone.
               </p>
             </CardContent>
@@ -84,50 +90,23 @@ export default function Page() {
                 </div>
               </CardContent>
             </Card>
-            <Card className="overflow-hidden bg-white/50 backdrop-blur">
-              <CardContent className="flex items-center gap-4 p-6">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <Send className="h-6 w-6 text-emerald-700" />
-                </div>
-                <div>
-                  <h3 className="font-semibold">Get Involved</h3>
-                  <p className="text-sm text-muted-foreground">Join our community of card makers</p>
-                </div>
-              </CardContent>
-            </Card>
+            <Link href="/ways-to-get-involved">
+              <Card className="overflow-hidden bg-white/50 backdrop-blur">
+                <CardContent className="flex items-center gap-4 p-6">
+                  <div className="rounded-lg bg-emerald-100 p-3">
+                    <Send className="h-6 w-6 text-emerald-700" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold">Get Involved</h3>
+                    <p className="text-sm text-muted-foreground">Join our community of card makers</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* Navigation */}
-      <nav className="fixed left-0 top-0 h-screen w-64 bg-zinc-900 p-4">
-        <div className="mb-8">
-          <Link href="/" className="flex items-center gap-2 text-white">
-            <Heart className="h-6 w-6" />
-            <span className="font-semibold">Cards For Mental Health</span>
-          </Link>
-        </div>
-        <div className="space-y-1">
-          {[
-            "Home",
-            "About Us",
-            "Ways to Get Involved",
-            "Tips for Helping People",
-            "Hotlines to Call",
-            "Get in Touch",
-            "Citations",
-          ].map((item) => (
-            <Link
-              key={item}
-              href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
-              className="block rounded-lg px-4 py-2 text-sm text-zinc-100 hover:bg-zinc-800"
-            >
-              {item}
-            </Link>
-          ))}
-        </div>
-      </nav>
-    </div>
+    </SidebarLayout>
   )
 }
 

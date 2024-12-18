@@ -1,9 +1,10 @@
+import { SIDEBAR_WIDTH } from "@/lib/constants"
 import Link from "next/link"
 import { Heart } from 'lucide-react'
 
 export function Navigation() {
   return (
-    <nav className="fixed left-0 top-0 h-screen w-64 bg-zinc-900 p-4">
+    <nav className="fixed left-0 top-0 h-screen bg-zinc-900 p-4" style={{ width: SIDEBAR_WIDTH }}>
       <div className="mb-8">
         <Link href="/" className="flex items-center gap-2 text-white">
           <Heart className="h-6 w-6" />
