@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.1",
@@ -14,6 +15,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.468.0",
     "next": "14.2.16",
+    "prettier": "^3.4.2",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.5.5",

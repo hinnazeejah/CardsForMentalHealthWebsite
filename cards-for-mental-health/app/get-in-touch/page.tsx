@@ -1,6 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { SidebarLayout } from "@/components/SidebarLayout"
-import { Mail, Instagram } from 'lucide-react'
+import { Card, CardContent } from "@/components/ui/card";
+import { SidebarLayout } from "@/components/SidebarLayout";
+import { Mail, Instagram } from "lucide-react";
 
 export default function GetInTouchPage() {
   return (
@@ -37,8 +37,8 @@ export default function GetInTouchPage() {
                 </div>
                 <h3 className="text-xl font-semibold">Email</h3>
               </div>
-              <a 
-                href="mailto:az5222008@gmail.com" 
+              <a
+                href="mailto:az5222008@gmail.com"
                 className="text-emerald-700 hover:underline"
               >
                 az5222008@gmail.com
@@ -54,10 +54,10 @@ export default function GetInTouchPage() {
                 </div>
                 <h3 className="text-xl font-semibold">Instagram</h3>
               </div>
-              <a 
-                href="https://instagram.com/cards_formentalhealth" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://instagram.com/cards_formentalhealth"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-emerald-700 hover:underline"
               >
                 @cards_formentalhealth
@@ -67,5 +67,5 @@ export default function GetInTouchPage() {
         </div>
       </section>
     </SidebarLayout>
-  )
-} 
+  );
+}
