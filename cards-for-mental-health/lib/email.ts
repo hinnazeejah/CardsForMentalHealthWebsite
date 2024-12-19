@@ -5,8 +5,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendEmail(subject: string, content: string) {
   try {
     await resend.emails.send({
-      from: 'Cards for Mental Health <onboarding@resend.dev>',
-      to: process.env.NOTIFICATION_EMAIL,
+      from: 'Acme <onboarding@resend.dev>',
+      to: "hinnazeejahhh@gmail.com",
       subject: subject,
       html: content
     });

@@ -7,24 +7,6 @@ import { Send } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function sendEmail(subject: string, content: string) {
-  try {
-    await resend.emails.send({
-      from: 'Cards for Mental Health <onboarding@resend.dev>',
-      to: process.env.NOTIFICATION_EMAIL,
-      subject: subject,
-      html: content
-    });
-    return true;
-  } catch (error) {
-    console.error('Failed to send email:', error);
-    return false;
-  }
-}
 
 export default function WaysToGetInvolvedPage() {
   const [message, setMessage] = useState('');
@@ -41,8 +23,8 @@ export default function WaysToGetInvolvedPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          type: 'feedback',
-          ...formData
+          type: 'message',
+          message: message
         }),
       });
 
