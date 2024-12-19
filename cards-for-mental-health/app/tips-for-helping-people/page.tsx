@@ -41,7 +41,7 @@ export default function TipsForHelpingPeoplePage() {
       <section className="relative overflow-hidden bg-gradient-to-r from-emerald-800 to-green-700">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
         <div className="container relative mx-auto px-4 py-16 sm:py-20 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center gap-8 sm:justify-between pt-8 sm:pt-0">
+          <div className="flex flex-col items-center text-center sm:flex-row sm:text-left sm:items-center gap-8 sm:justify-between">
             <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none">
               Tips for Helping People
             </h1>

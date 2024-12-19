@@ -156,7 +156,7 @@ export default function WaysToGetInvolvedPage() {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting}
-                    className="bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-serif tracking-wide"
+                    className="bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-sans tracking-wide"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                     <Send className="ml-2 h-4 w-4" />

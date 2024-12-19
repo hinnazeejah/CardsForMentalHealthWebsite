@@ -116,7 +116,7 @@ export default function FeedbackPage() {
               <Button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-serif tracking-wide"
+                className="w-full bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-sans tracking-wide"
               >
                 {isSubmitting ? 'Sending...' : 'Send Feedback'}
                 <Send className="ml-2 h-4 w-4" />
