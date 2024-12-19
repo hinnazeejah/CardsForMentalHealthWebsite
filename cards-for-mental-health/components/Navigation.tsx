@@ -81,30 +81,43 @@ export function Navigation() {
         {isOpen && (
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700 lg:hidden"
+            className="absolute top-6 right-6 p-2.5 rounded-full bg-white/80 backdrop-blur-sm 
+            hover:bg-white transition-colors duration-200 text-emerald-900 
+            hover:text-emerald-950 shadow-sm lg:hidden"
           >
-            <X className="w-6 h-6" />
+            <X className="w-4 h-4" />
           </button>
         )}
 
         <div className="p-4">
-          <motion.div 
-            className="mt-2 mb-8 p-2 rounded-xl bg-white border border-emerald-100 shadow-sm"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <Link href="/" className="flex items-center gap-2 text-emerald-900">
-              <Image 
-                src="/cards4mentalhealth.png"
-                alt="Cards for Mental Health Logo"
-                width={24}
-                height={24}
-                className="h-6 w-6"
-                priority
-              />
-              <span className="font-semibold">Cards For Mental Health</span>
-            </Link>
-          </motion.div>
+          <div className="flex items-center bg-white rounded-2xl p-3 mb-8 shadow-sm">
+            <motion.div 
+              className="flex-1"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Link href="/" className="flex items-center gap-3">
+                <Image 
+                  src="/cards4mentalhealth.png"
+                  alt="Cards for Mental Health Logo"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6"
+                  priority
+                />
+                <span className="font-medium text-emerald-900">Cards For Mental Health</span>
+              </Link>
+            </motion.div>
+            
+            {isOpen && (
+              <button
+                onClick={() => setIsOpen(false)}
+                className="ml-2 p-2 rounded-xl hover:bg-emerald-50 transition-colors duration-200 text-emerald-900"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
 
           <div className="space-y-1">
             {navItems.map((item) => (
