@@ -26,7 +26,7 @@ export default function Page() {
             <div className="container relative mx-auto px-4 py-12 sm:py-24 sm:px-6 lg:px-8">
               <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-8 sm:justify-between">
                 <div className="max-w-2xl text-center sm:text-left mt-8 sm:mt-0">
-                  <h1 className={`text-3xl sm:text-4xl font-bold tracking-tighter text-white xl:text-7xl/none ${magdalena.className}`}>
+                  <h1 className="text-3xl sm:text-4xl font-bold tracking-tighter text-white xl:text-7xl/none">
                     Cards for Mental Health
                   </h1>
                   <p className="mt-3 sm:mt-4 text-base sm:text-lg text-white/80">
@@ -37,7 +37,7 @@ export default function Page() {
                       <Button 
                         size="lg" 
                         variant="secondary" 
-                        className="bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-serif tracking-wide w-full sm:w-auto"
+                        className="bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-sans tracking-wide w-full sm:w-auto"
                       >
                         Get Involved
                         <Heart className="ml-2 h-4 w-4" />
@@ -47,7 +47,7 @@ export default function Page() {
                       <Button 
                         size="lg" 
                         variant="outline" 
-                        className="border-2 border-white text-white hover:bg-white/20 font-serif tracking-wide w-full sm:w-auto"
+                        className="border-2 border-white text-white hover:bg-white/20 font-sans tracking-wide w-full sm:w-auto"
                       >
                         Learn More
                       </Button>

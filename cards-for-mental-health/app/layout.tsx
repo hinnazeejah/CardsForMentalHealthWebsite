@@ -1,13 +1,13 @@
 'use client'
 
-import { Playfair_Display } from "next/font/google"
+import { Montserrat } from "next/font/google"
 import "./globals.css"
 import { AnimatePresence } from "framer-motion"
 import { usePathname } from 'next/navigation'
 
-const serif = Playfair_Display({ 
+const montserrat = Montserrat({ 
   subsets: ['latin'],
-  variable: '--font-serif',
+  variable: '--font-sans',
 })
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
   
   return (
     <html lang="en">
-      <body className={`${serif.variable} font-serif antialiased`}>
+      <body className={`${montserrat.variable} font-sans antialiased`}>
         <AnimatePresence mode="wait">
           <div key={pathname}>
             {children}

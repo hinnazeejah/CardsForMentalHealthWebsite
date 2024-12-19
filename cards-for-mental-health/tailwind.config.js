@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['var(--font-serif)'],
+        sans: ['var(--font-sans)'],
       },
       colors: {
         sidebar: '#C1E899',
