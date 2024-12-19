@@ -1,8 +1,9 @@
 'use client';
+
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card"
 import { SidebarLayout } from "@/components/SidebarLayout"
-import { MessageSquare } from 'lucide-react'
+import { MessageSquare, Send } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -21,12 +22,15 @@ export default function FeedbackPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/feedback', {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          type: 'feedback',
+          ...formData
+        }),
       });
 
       if (!response.ok) throw new Error('Failed to submit feedback');
@@ -35,7 +39,8 @@ export default function FeedbackPage() {
       setFormData({ name: '', email: '', feedback: '' });
       alert('Thank you for your feedback!');
       
-    } catch {
+    } catch (error) {
+      console.error('Submission error:', error);
       alert('Failed to submit feedback. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -51,7 +56,6 @@ export default function FeedbackPage() {
 
   return (
     <SidebarLayout>
-      {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-r from-emerald-800 to-green-700">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
         <div className="container relative mx-auto px-4 py-16 sm:py-20 sm:px-6 lg:px-8">
@@ -74,62 +78,53 @@ export default function FeedbackPage() {
       </section>
 
       {/* Feedback Form Section */}
-      <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <Card className="overflow-hidden bg-white/50 backdrop-blur">
-          <CardContent className="p-6 sm:p-8">
-            <p className="leading-relaxed text-muted-foreground mb-8">
-              Your feedback helps us grow and better serve our community. Share your thoughts, suggestions, or experiences with Cards for Mental Health.
-            </p>
+      <section className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <Card className="overflow-hidden bg-white/50 backdrop-blur max-w-2xl mx-auto">
+          <CardContent className="p-8">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold tracking-tight mb-4">Share Your Thoughts</h2>
+              <p className="text-muted-foreground">
+                Your feedback helps us improve and better serve our community. Share your thoughts, suggestions, or experiences with us.
+              </p>
+            </div>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Name (Optional)</label>
-                <Input 
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your name" 
-                  className="bg-white/70"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-2">Email (Optional)</label>
-                <Input 
-                  name="email"
-                  type="email" 
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="your.email@example.com" 
-                  className="bg-white/70"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-2">Your Feedback</label>
-                <Textarea 
-                  name="feedback"
-                  value={formData.feedback}
-                  onChange={handleChange}
-                  placeholder="Share your thoughts, suggestions, or experiences..." 
-                  className="h-32 bg-white/70"
-                  required
-                />
-              </div>
-              
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <Input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name (Optional)"
+                className="bg-white/70"
+              />
+              <Input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Your Email (Optional)"
+                className="bg-white/70"
+              />
+              <Textarea
+                name="feedback"
+                value={formData.feedback}
+                onChange={handleChange}
+                placeholder="Your Feedback"
+                required
+                className="h-32 bg-white/70"
+              />
               <Button 
                 type="submit"
-                size="lg"
                 disabled={isSubmitting}
-                className="bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-serif tracking-wide"
+                className="w-full bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-serif tracking-wide"
               >
-                {isSubmitting ? 'Submitting...' : 'Submit Feedback'}
-                <MessageSquare className="ml-2 h-4 w-4" />
+                {isSubmitting ? 'Sending...' : 'Send Feedback'}
+                <Send className="ml-2 h-4 w-4" />
               </Button>
             </form>
           </CardContent>
         </Card>
       </section>
     </SidebarLayout>
-  )
-} 
+  );
+}
