@@ -1,32 +1,21 @@
 'use client'
 
-import Link from "next/link"
 import * as React from "react"
-import { cn } from "@/lib/utils"
+import { useState } from "react"
+import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
-import { useState } from "react"
+import { motion } from "framer-motion"
 
-export type InputProps = React.InputHTMLAttributes<HTMLInputElement>
-
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
-    return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
-)
-Input.displayName = "Input"
-
-export { Input }
+const navItems = [
+  "Home",
+  "About Us",
+  "Get Involved",
+  "Tips for Helping People",
+  "Hotlines to Call",
+  "Contact Us",
+  "Feedback",
+]
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -34,20 +23,29 @@ export function Navigation() {
   return (
     <>
       {/* Mobile Menu Button */}
-      <button 
+      <motion.button 
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-4 left-4 z-50 lg:hidden bg-white p-2 rounded-lg shadow-md"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
         {isOpen ? <X /> : <Menu />}
-      </button>
+      </motion.button>
 
       {/* Navigation Menu */}
-      <nav 
-        className={`fixed left-0 top-0 h-screen w-[256px] bg-emerald-50 lg:bg-[#b0e892]/[0.65] border-r border-emerald-100 p-4 
+      <div 
+        className={`fixed left-0 top-0 h-screen w-[256px] 
+          bg-gradient-to-b from-emerald-50 to-[#e8f5e4] 
+          lg:bg-gradient-to-b lg:from-emerald-100/80 lg:to-[#c8e6bc]/80 
+          backdrop-blur-sm border-r border-emerald-100 p-4 
           ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
           lg:translate-x-0 transition-transform duration-200 z-40`}
       >
-        <div className="mb-8 p-2 rounded-xl bg-white border border-emerald-100 shadow-sm">
+        <motion.div 
+          className="mb-8 p-2 rounded-xl bg-white border border-emerald-100 shadow-sm"
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
           <Link href="/" className="flex items-center gap-2 text-emerald-900">
             <Image 
               src="/cards4mentalhealth.png"
@@ -59,57 +57,27 @@ export function Navigation() {
             />
             <span className="font-semibold">Cards For Mental Health</span>
           </Link>
-        </div>
+        </motion.div>
+
         <div className="space-y-2">
-          {[
-            "Home",
-            "About Us",
-            "Get Involved",
-            "Tips for Helping People",
-            "Hotlines to Call",
-            "Contact Us",
-            "Feedback",
-          ].map((item) => (
-            <Link
+          {navItems.map((item) => (
+            <motion.div
               key={item}
-              href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
-              className="block rounded-lg px-4 py-2.5 text-sm text-emerald-900 hover:bg-white border border-transparent hover:border-emerald-100 transition-all duration-200 hover:shadow-sm"
+              whileHover={{ scale: 1.02, x: 4 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              {item}
-            </Link>
+              <Link
+                href={item === "Home" ? "/" : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                className="block rounded-lg px-4 py-2.5 text-sm text-emerald-900 hover:bg-white border border-transparent hover:border-emerald-100 transition-all duration-200 hover:shadow-sm"
+                onClick={() => setIsOpen(false)}
+              >
+                {item}
+              </Link>
+            </motion.div>
           ))}
         </div>
-      </nav>
-
-      {/* Overlay for mobile */}
-      {isOpen && (
-        <div 
-          className="fixed inset-0 bg-black/40 lg:hidden z-30"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
+      </div>
     </>
   )
-}
-
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
-
-export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
-
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <textarea
-        className={cn(
-          "flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
-)
-Textarea.displayName = "Textarea"
-
-export { Textarea } 
+} 

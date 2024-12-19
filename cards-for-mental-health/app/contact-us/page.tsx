@@ -1,9 +1,25 @@
+'use client'
+
 import { Card, CardContent } from "@/components/ui/card"
 import { SidebarLayout } from "@/components/SidebarLayout"
 import { Mail, Instagram } from 'lucide-react'
+import { AnimatedCard } from "@/components/AnimatedCard"
 import Image from 'next/image'
 
-export default function GetInTouchPage() {
+const contactMethods = [
+  {
+    icon: <Mail className="h-6 w-6 text-emerald-700" />,
+    title: "Email",
+    content: "az522208@gmail.com"
+  },
+  {
+    icon: <Instagram className="h-6 w-6 text-emerald-700" />,
+    title: "Instagram",
+    content: "@cards_formentalhhealth"
+  }
+]
+
+export default function ContactPage() {
   return (
     <SidebarLayout>
       {/* Hero Section */}
@@ -28,7 +44,7 @@ export default function GetInTouchPage() {
         </div>
       </section>
 
-      {/* Introduction Section */}
+      {/* Introduction Section - Static Card */}
       <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <Card className="overflow-hidden bg-white/50 backdrop-blur">
           <CardContent className="p-6 sm:p-8">
@@ -39,44 +55,24 @@ export default function GetInTouchPage() {
         </Card>
       </section>
 
-      {/* Contact Methods Section */}
+      {/* Contact Methods Grid - Animated Cards */}
       <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2">
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
+          {contactMethods.map((method, index) => (
+            <AnimatedCard
+              key={index}
+              icon={
                 <div className="rounded-lg bg-emerald-100 p-3">
-                  <Mail className="h-6 w-6 text-emerald-700" />
+                  {method.icon}
                 </div>
-                <h3 className="text-xl font-semibold">Email</h3>
-              </div>
-              <a 
-                href="mailto:az5222008@gmail.com" 
-                className="text-emerald-700 hover:underline"
-              >
-                az5222008@gmail.com
-              </a>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <Instagram className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">Instagram</h3>
-              </div>
-              <a 
-                href="https://instagram.com/cards_formentalhealth" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-emerald-700 hover:underline"
-              >
-                @cards_formentalhealth
-              </a>
-            </CardContent>
-          </Card>
+              }
+              title={method.title}
+            >
+              <p className="text-muted-foreground">
+                {method.content}
+              </p>
+            </AnimatedCard>
+          ))}
         </div>
       </section>
     </SidebarLayout>

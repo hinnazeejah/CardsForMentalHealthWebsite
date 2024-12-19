@@ -1,7 +1,38 @@
+'use client'
+
 import { Card, CardContent } from "@/components/ui/card"
 import { SidebarLayout } from "@/components/SidebarLayout"
 import { Phone, MessageSquare } from 'lucide-react'
+import { AnimatedCard } from "@/components/AnimatedCard"
 import Image from 'next/image'
+
+const hotlines = [
+  {
+    icon: <Phone className="h-6 w-6 text-emerald-700" />,
+    title: "National Suicide Prevention Lifeline",
+    content: "Call or Text: 988"
+  },
+  {
+    icon: <MessageSquare className="h-6 w-6 text-emerald-700" />,
+    title: "Crisis Text Line",
+    content: "Text HOME to: 741741"
+  },
+  {
+    icon: <Phone className="h-6 w-6 text-emerald-700" />,
+    title: "National Alliance on Mental Illness (NAMI)",
+    content: "Call: 1-800-950-NAMI\nText HELPLINE to: 6264"
+  },
+  {
+    icon: <Phone className="h-6 w-6 text-emerald-700" />,
+    title: "SAMHSA's National Helpline",
+    content: "Call: 1-800-662-HELP (4357)"
+  },
+  {
+    icon: <Phone className="h-6 w-6 text-emerald-700" />,
+    title: "Long Island Crisis Center",
+    content: "Call: 516-679-1111"
+  }
+]
 
 export default function HotlinesPage() {
   return (
@@ -28,7 +59,7 @@ export default function HotlinesPage() {
         </div>
       </section>
 
-      {/* Introduction Section */}
+      {/* Introduction Section - Static Card */}
       <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <Card className="overflow-hidden bg-white/50 backdrop-blur">
           <CardContent className="p-6 sm:p-8">
@@ -39,79 +70,24 @@ export default function HotlinesPage() {
         </Card>
       </section>
 
-      {/* Hotlines Grid Section */}
+      {/* Hotlines Grid Section - Animated Cards */}
       <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2">
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
+          {hotlines.map((hotline, index) => (
+            <AnimatedCard
+              key={index}
+              icon={
                 <div className="rounded-lg bg-emerald-100 p-3">
-                  <Phone className="h-6 w-6 text-emerald-700" />
+                  {hotline.icon}
                 </div>
-                <h3 className="text-xl font-semibold">National Suicide Prevention Lifeline</h3>
-              </div>
-              <p className="text-muted-foreground">
-                Call or Text: <span className="font-semibold">988</span>
+              }
+              title={hotline.title}
+            >
+              <p className="text-muted-foreground whitespace-pre-line">
+                {hotline.content}
               </p>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <MessageSquare className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">Crisis Text Line</h3>
-              </div>
-              <p className="text-muted-foreground">
-                Text HOME to: <span className="font-semibold">741741</span>
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <Phone className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">National Alliance on Mental Illness (NAMI)</h3>
-              </div>
-              <p className="text-muted-foreground">
-                Call: <span className="font-semibold">1-800-950-NAMI</span><br />
-                Text HELPLINE to: <span className="font-semibold">6264</span>
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <Phone className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">SAMHSA's National Helpline</h3>
-              </div>
-              <p className="text-muted-foreground">
-                Call: <span className="font-semibold">1-800-662-HELP (4357)</span>
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <Phone className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">Long Island Crisis Center</h3>
-              </div>
-              <p className="text-muted-foreground">
-                Call: <span className="font-semibold">516-679-1111</span>
-              </p>
-            </CardContent>
-          </Card>
+            </AnimatedCard>
+          ))}
         </div>
       </section>
     </SidebarLayout>

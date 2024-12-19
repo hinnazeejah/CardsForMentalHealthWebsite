@@ -1,7 +1,38 @@
-import { Card, CardContent } from "@/components/ui/card"
+'use client'
+
+import { CardContent } from "@/components/ui/card"
 import { SidebarLayout } from "@/components/SidebarLayout"
-import { Clock, Ear, HandHeart, Stethoscope, BookOpen } from 'lucide-react'
+import { AnimatedCard } from "@/components/AnimatedCard"
+import { Ear, Clock, HandHeart, Stethoscope, BookOpen } from 'lucide-react'
 import Image from 'next/image'
+
+const tips = [
+  {
+    icon: <Ear className="w-5 h-5 text-emerald-600" />,
+    title: "Listen",
+    content: "Sometimes, the best thing you can do is listen without judgment. Be the shoulder people you care about can cry on and trust."
+  },
+  {
+    icon: <Clock className="w-5 h-5 text-emerald-600" />,
+    title: "Be Patient",
+    content: "Understand that recovery takes time and be patient with those who are struggling with their mental health. Remember recovery isn't always linear."
+  },
+  {
+    icon: <HandHeart className="w-5 h-5 text-emerald-600" />,
+    title: "Offer Support",
+    content: "Let them know you are there for them and willing to help in any way you can."
+  },
+  {
+    icon: <Stethoscope className="w-5 h-5 text-emerald-600" />,
+    title: "Encourage Professional Help",
+    content: "Suggest seeking help from a mental health professional. Let them know it's okay to seek professional help. Validate their feelings."
+  },
+  {
+    icon: <BookOpen className="w-5 h-5 text-emerald-600" />,
+    title: "Educate Yourself",
+    content: "Learn about mental health to better understand what they might be going through. Reading books, and researching about mental health can have a positive effect on you as well as help you learn how to help others."
+  }
+]
 
 export default function TipsForHelpingPeoplePage() {
   return (
@@ -28,89 +59,20 @@ export default function TipsForHelpingPeoplePage() {
         </div>
       </section>
 
-      {/* Introduction Section */}
+      {/* Tips Grid */}
       <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <Card className="overflow-hidden bg-white/50 backdrop-blur">
-          <CardContent className="p-6 sm:p-8">
-            <p className="leading-relaxed text-muted-foreground">
-              If people in your life are struggling with their mental health, here's what you can do to support and help them in the best way possible.
-            </p>
-          </CardContent>
-        </Card>
-      </section>
-
-      {/* Tips Grid Section */}
-      <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2">
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <Ear className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">Listen</h3>
-              </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {tips.map((tip, index) => (
+            <AnimatedCard
+              key={index}
+              icon={tip.icon}
+              title={tip.title}
+            >
               <p className="text-muted-foreground">
-                Sometimes, the best thing you can do is listen without judgment. Be the shoulder people you care about can cry on and trust.
+                {tip.content}
               </p>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <Clock className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">Be Patient</h3>
-              </div>
-              <p className="text-muted-foreground">
-                Understand that recovery takes time and be patient with those who are struggling with their mental health. Remember recovery isn't always linear.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <HandHeart className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">Offer Support</h3>
-              </div>
-              <p className="text-muted-foreground">
-                Let them know you are there for them and willing to help in any way you can.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <Stethoscope className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">Encourage Professional Help</h3>
-              </div>
-              <p className="text-muted-foreground">
-                Suggest seeking help from a mental health professional. Let them know it's okay to seek professional help. Validate their feelings.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="overflow-hidden bg-white/50 backdrop-blur">
-            <CardContent className="p-6 sm:p-8">
-              <div className="mb-6 flex items-center gap-4">
-                <div className="rounded-lg bg-emerald-100 p-3">
-                  <BookOpen className="h-6 w-6 text-emerald-700" />
-                </div>
-                <h3 className="text-xl font-semibold">Educate Yourself</h3>
-              </div>
-              <p className="text-muted-foreground">
-                Learn about mental health to better understand what they might be going through. Reading books, and researching about mental health can have a positive effect on you as well as help you learn how to help others.
-              </p>
-            </CardContent>
-          </Card>
+            </AnimatedCard>
+          ))}
         </div>
       </section>
     </SidebarLayout>
