@@ -7,7 +7,7 @@ export async function GET() {
     await connectDB();
     const messages = await Message.find().sort({ createdAt: -1 });
     return NextResponse.json({ success: true, messages });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch messages' },
       { status: 500 }
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ success: true, message });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to submit message' },
       { status: 500 }

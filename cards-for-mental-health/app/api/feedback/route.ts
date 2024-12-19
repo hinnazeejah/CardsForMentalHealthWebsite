@@ -7,7 +7,7 @@ export async function GET() {
     await connectDB();
     const feedbacks = await Feedback.find().sort({ createdAt: -1 });
     return NextResponse.json({ success: true, feedbacks });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch feedback' },
       { status: 500 }
@@ -17,19 +17,19 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
+    const { name, email, message } = await request.json();
     await connectDB();
-    const body = await request.json();
     
     const feedback = await Feedback.create({
-      name: body.name || 'Anonymous',
-      email: body.email,
-      feedback: body.feedback
+      name: name || 'Anonymous',
+      email: email,
+      feedback: message
     });
 
     return NextResponse.json({ success: true, feedback });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
-      { success: false, error: 'Failed to submit feedback' },
+      { success: false, message: 'Failed to submit feedback' },
       { status: 500 }
     );
   }

@@ -1,5 +1,4 @@
 import { Navigation } from "./Navigation"
-import { SIDEBAR_WIDTH } from "@/lib/constants"
 
 export function SidebarLayout({ children }: { children: React.ReactNode }) {
   return (

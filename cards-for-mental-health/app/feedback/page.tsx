@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Card, CardContent } from "@/components/ui/card"
 import { SidebarLayout } from "@/components/SidebarLayout"
 import { MessageSquare } from 'lucide-react'
@@ -10,7 +9,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 export default function FeedbackPage() {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,7 +35,7 @@ export default function FeedbackPage() {
       setFormData({ name: '', email: '', feedback: '' });
       alert('Thank you for your feedback!');
       
-    } catch (error) {
+    } catch {
       alert('Failed to submit feedback. Please try again.');
     } finally {
       setIsSubmitting(false);

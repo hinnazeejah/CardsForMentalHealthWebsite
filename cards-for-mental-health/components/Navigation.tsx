@@ -1,6 +1,5 @@
 'use client'
 
-import { SIDEBAR_WIDTH } from "@/lib/constants"
 import Link from "next/link"
 import * as React from "react"
 import { cn } from "@/lib/utils"
@@ -8,8 +7,7 @@ import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
@@ -94,8 +92,9 @@ export function Navigation() {
   )
 }
 
-export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {

@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Brain, Heart, Send } from 'lucide-react'
+import { Heart, Send } from 'lucide-react'
 import Link from "next/link"
-import { Navigation } from "@/components/Navigation"
 import { SidebarLayout } from "@/components/SidebarLayout"
 import Image from "next/image"
 import { Playfair_Display } from "next/font/google"

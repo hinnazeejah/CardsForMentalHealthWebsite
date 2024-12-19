@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card"
 import { SidebarLayout } from "@/components/SidebarLayout"
-import { Mail, Send } from 'lucide-react'
+import { Send } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
@@ -31,7 +31,7 @@ export default function WaysToGetInvolvedPage() {
       setMessage('');
       alert('Thank you for your message!');
       
-    } catch (error) {
+    } catch {
       alert('Failed to submit message. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -67,7 +67,9 @@ export default function WaysToGetInvolvedPage() {
         <Card className="overflow-hidden bg-white/50 backdrop-blur shadow-sm">
           <CardContent className="p-6">
             <p className="text-lg leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto">
-              At Cards for Mental Health, we believe in the power of a simple, heartfelt message to bring comfort and hope to those facing mental health challenges. There are many ways you can contribute to our mission and help spread kindness to those in need.
+              Hi! I&apos;m Aleena, a high school student from Oceanside, passionate about spreading kindness and positivity. 
+              I created Cards For Mental Health because I believe in the power of small gestures to make a big difference 
+              in the lives of those struggling, especially with their mental health.
             </p>
           </CardContent>
         </Card>

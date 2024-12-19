@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Navigation } from "@/components/Navigation"
 import { SidebarLayout } from "@/components/SidebarLayout"
 import Image from 'next/image'
 
@@ -46,7 +45,7 @@ export default function AboutUsPage() {
               <div className="w-full md:w-1/2">
                 <h2 className="text-2xl font-bold tracking-tight mb-4">Meet the Founder</h2>
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  Hi! I'm Aleena, a high school student from Oceanside, passionate about spreading kindness and positivity. 
+                  Hi! I&apos;m Aleena, a high school student from Oceanside, passionate about spreading kindness and positivity. 
                   I created Cards For Mental Health because I believe in the power of small gestures to make a big difference 
                   in the lives of those struggling, especially with their mental health.
                 </p>
