@@ -17,8 +17,12 @@ const navItems = [
   "Feedback",
 ]
 
-export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
+interface NavigationProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
+
+export function Navigation({ isOpen, setIsOpen }: NavigationProps) {
   const sidebarRef = useRef<HTMLDivElement>(null)
 
   // Handle click outside
@@ -36,27 +40,21 @@ export function Navigation() {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [isOpen])
+  }, [isOpen, setIsOpen])
 
   return (
     <>
-      {/* Mobile Menu Button - Adjust position to overlay */}
+      {/* Mobile Menu Button */}
       <motion.button 
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2"
+        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg bg-emerald-800/90 backdrop-blur-sm shadow-lg hover:bg-emerald-700/90 transition-colors duration-200"
         aria-label="Toggle menu"
       >
-        <svg
-          className="w-6 h-6 text-white"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+        {isOpen ? (
+          <X className="w-6 h-6 text-white" />
+        ) : (
+          <Menu className="w-6 h-6 text-white" />
+        )}
       </motion.button>
 
       {/* Overlay */}
