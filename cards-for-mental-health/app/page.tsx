@@ -23,38 +23,38 @@ export default function Page() {
         <ScrollReveal>
           <section className="relative overflow-hidden bg-gradient-to-r from-emerald-800 to-green-700">
             <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
-            <div className="container relative mx-auto px-4 py-16 sm:py-20 sm:px-6 lg:px-8">
-              <div className="flex flex-col sm:flex-row items-center gap-8 sm:justify-between pt-8 sm:pt-0">
-                <div className="max-w-2xl">
-                  <h1 className={`text-4xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none ${magdalena.className}`}>
+            <div className="container relative mx-auto px-4 py-12 sm:py-24 sm:px-6 lg:px-8">
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-8 sm:justify-between">
+                <div className="max-w-2xl text-center sm:text-left mt-8 sm:mt-0">
+                  <h1 className={`text-3xl sm:text-4xl font-bold tracking-tighter text-white xl:text-7xl/none ${magdalena.className}`}>
                     Cards for Mental Health
                   </h1>
-                  <p className="mt-6 text-xl text-white/80">
+                  <p className="mt-3 sm:mt-4 text-base sm:text-lg text-white/80">
                     Creating cards for people struggling with mental health across Long Island
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-4">
-                    <Link href="/get-involved">
+                  <div className="mt-4 sm:mt-6 flex flex-wrap justify-center sm:justify-start gap-2 sm:gap-4">
+                    <Link href="/get-involved" className="w-full sm:w-auto">
                       <Button 
                         size="lg" 
                         variant="secondary" 
-                        className="bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-serif tracking-wide"
+                        className="bg-white text-emerald-800 hover:bg-emerald-50 border-2 border-emerald-800 font-serif tracking-wide w-full sm:w-auto"
                       >
                         Get Involved
                         <Heart className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                    <Link href="/about-us">
+                    <Link href="/about-us" className="w-full sm:w-auto">
                       <Button 
                         size="lg" 
                         variant="outline" 
-                        className="border-2 border-white text-white hover:bg-white/20 font-serif tracking-wide"
+                        className="border-2 border-white text-white hover:bg-white/20 font-serif tracking-wide w-full sm:w-auto"
                       >
                         Learn More
                       </Button>
                     </Link>
                   </div>
                 </div>
-                <div className="w-28 sm:w-36 lg:w-48 lg:mr-20">
+                <div className="w-20 sm:w-36 lg:w-48 mt-6 sm:mt-0 sm:mr-20">
                   <Image 
                     src="/cards4mentalhealth.png"
                     alt="Cards for Mental Health Logo"
@@ -71,13 +71,13 @@ export default function Page() {
 
         {/* Welcome Section */}
         <ScrollReveal delay={0.2}>
-          <section className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <section className="container mx-auto px-4 py-6 sm:py-16 sm:px-6 lg:px-8">
             <Card className="overflow-hidden bg-white/50 backdrop-blur">
-              <CardContent className="p-6 sm:p-8">
-                <h2 className="mb-6 text-2xl font-bold tracking-tight sm:text-3xl">
+              <CardContent className="p-4 sm:p-8">
+                <h2 className="mb-3 sm:mb-6 text-xl sm:text-2xl font-bold tracking-tight sm:text-3xl">
                   Welcome to Cards For Mental Health!
                 </h2>
-                <p className="leading-relaxed text-muted-foreground">
+                <p className="leading-relaxed text-muted-foreground text-sm sm:text-base">
                   Hi there! Welcome to Cards For Mental Health, a project run by a high school student dedicated to bringing smiles
                   and support to people in mental health hospitals and emergency rooms, as well as people in hospitals struggling
                   with their mental health during their stay on Long Island. Our mission is simple: spread kindness and show that
