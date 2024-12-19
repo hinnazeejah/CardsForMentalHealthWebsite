@@ -98,8 +98,8 @@ export default function WaysToGetInvolvedPage() {
                       Once your card is ready, save it as an image file (JPEG, PNG) or PDF.
                     </p>
                     <div className="mt-2">
-                      <a href="mailto:src222008@gmail.com" className="text-emerald-600 hover:text-emerald-700">
-                        src222008@gmail.com
+                      <a href="mailto:az5222008@gmail.com" className="text-emerald-600 hover:text-emerald-700">
+                        az5222008@gmail.com
                       </a>
                     </div>
                   </div>

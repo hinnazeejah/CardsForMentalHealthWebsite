@@ -10,12 +10,14 @@ const contactMethods = [
   {
     icon: <Mail className="h-6 w-6 text-emerald-700" />,
     title: "Email",
-    content: "az522208@gmail.com"
+    content: "az522208@gmail.com",
+    href: "mailto:az522208@gmail.com"
   },
   {
     icon: <Instagram className="h-6 w-6 text-emerald-700" />,
     title: "Instagram",
-    content: "@cards_formentalhhealth"
+    content: "@cards_formentalhealth",
+    href: "https://www.instagram.com/cards_formentalhealth"
   }
 ]
 
@@ -68,9 +70,14 @@ export default function ContactPage() {
               }
               title={method.title}
             >
-              <p className="text-muted-foreground">
+              <a 
+                href={method.href}
+                target={method.title === 'Instagram' ? '_blank' : undefined}
+                rel={method.title === 'Instagram' ? 'noopener noreferrer' : undefined}
+                className="text-muted-foreground hover:text-emerald-700 transition-colors"
+              >
                 {method.content}
-              </p>
+              </a>
             </AnimatedCard>
           ))}
         </div>
