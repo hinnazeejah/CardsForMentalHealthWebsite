@@ -40,10 +40,10 @@ export function Navigation() {
 
   return (
     <>
-      {/* Mobile Menu Button */}
+      {/* Mobile Menu Button - Adjust position to overlay */}
       <motion.button 
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2"
+        className="fixed top-4 left-4 z-50 lg:hidden p-2 mix-blend-difference"
         aria-label="Toggle menu"
       >
         <svg
@@ -53,7 +53,7 @@ export function Navigation() {
           strokeLinejoin="round"
           strokeWidth="2"
           viewBox="0 0 24 24"
-          stroke="currentColor"
+          stroke="white"
         >
           <path d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
