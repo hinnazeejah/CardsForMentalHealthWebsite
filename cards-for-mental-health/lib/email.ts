@@ -11,7 +11,7 @@ export async function sendEmail(subject: string, content: string) {
 
     const response = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
-      to: "az5222008@gmail.com",
+      to: "licardsformentalhealth@gmail.com",
       subject: subject,
       html: content
     });

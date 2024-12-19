@@ -10,8 +10,8 @@ const contactMethods = [
   {
     icon: <Mail className="h-6 w-6 text-emerald-700" />,
     title: "Email",
-    content: "az522208@gmail.com",
-    href: "mailto:az522208@gmail.com"
+    content: "licardsformentalhealth@gmail.com",
+    href: "mailto:licardsformentalhealth@gmail.com"
   },
   {
     icon: <Instagram className="h-6 w-6 text-emerald-700" />,
