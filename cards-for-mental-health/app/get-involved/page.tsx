@@ -70,9 +70,7 @@ export default function WaysToGetInvolvedPage() {
         <Card className="overflow-hidden bg-white/50 backdrop-blur shadow-sm">
           <CardContent className="p-6">
             <p className="text-lg leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto">
-              Hi! I&apos;m Aleena, a high school student from Oceanside, passionate about spreading kindness and positivity. 
-              I created Cards For Mental Health because I believe in the power of small gestures to make a big difference 
-              in the lives of those struggling, especially with their mental health.
+              At Cards for Mental Health, we believe in the power of a simple, heartfelt message to bring comfort and hope to those facing mental health challenges. There are many ways you can contribute to our mission and help spread kindness to those in need.
             </p>
           </CardContent>
         </Card>
