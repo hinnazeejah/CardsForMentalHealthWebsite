@@ -44,14 +44,14 @@ export default function WaysToGetInvolvedPage() {
   return (
     <SidebarLayout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-emerald-800 to-green-700">
+      <section className="relative overflow-hidden bg-gradient-to-r from-emerald-800 to-green-700 min-h-screen sm:min-h-0">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
-        <div className="container relative mx-auto px-4 py-16 sm:py-20 sm:px-6 lg:px-8">
+        <div className="container relative mx-auto px-4 py-16 sm:py-20 sm:px-6 lg:px-8 min-h-[100vh] sm:min-h-0 flex flex-col justify-center">
           <div className="flex flex-col sm:flex-row items-center gap-8 sm:justify-between pt-8 sm:pt-0">
             <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none">
               Get Involved
             </h1>
-            <div className="w-28 sm:w-36 lg:w-48 lg:mr-20">
+            <div className="w-40 sm:w-36 lg:w-48 mt-6 sm:mt-0 sm:mr-20">
               <Image 
                 src="/cards4mentalhealth.png"
                 alt="Cards for Mental Health Logo"
@@ -66,7 +66,7 @@ export default function WaysToGetInvolvedPage() {
       </section>
 
       {/* Introduction Text */}
-      <section className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <section className="container mx-auto px-4 py-8 sm:py-8 lg:px-8 mt-8 sm:mt-0">
         <Card className="overflow-hidden bg-white/50 backdrop-blur shadow-sm">
           <CardContent className="p-6">
             <p className="text-lg leading-relaxed text-muted-foreground text-center max-w-3xl mx-auto">
