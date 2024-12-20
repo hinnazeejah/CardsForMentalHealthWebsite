@@ -24,8 +24,8 @@ export default function Page() {
         <ScrollReveal>
           <section className="relative overflow-hidden bg-gradient-to-r from-emerald-800 to-green-700 min-h-screen sm:min-h-0">
             <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
-            <div className="container relative mx-auto px-4 py-8 sm:py-24 sm:px-6 lg:px-8 min-h-[100vh] sm:min-h-0 flex flex-col justify-center">
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-8 sm:justify-between">
+            <div className="container relative mx-auto px-4 py-0 sm:py-24 sm:px-6 lg:px-8 min-h-[90vh] sm:min-h-0 flex flex-col justify-center">
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-8 sm:justify-between pt-16 sm:pt-0">
                 <div className="max-w-2xl text-center sm:text-left mt-0 sm:mt-0">
                   <h1 className="text-4xl sm:text-5xl font-bold tracking-tighter text-white xl:text-7xl/none">
                     Cards for Mental Health
@@ -55,7 +55,7 @@ export default function Page() {
                     </Link>
                   </div>
                 </div>
-                <div className="flex flex-col items-center justify-center w-40 sm:w-36 lg:w-44 mt-6 sm:mt-0 sm:mr-20">
+                <div className="flex flex-col items-center justify-center w-40 sm:w-36 lg:w-44 mt-2 sm:mt-0 sm:mr-20">
                   <Image 
                     src="/cards4mentalhealth.png"
                     alt="Cards for Mental Health Logo"
