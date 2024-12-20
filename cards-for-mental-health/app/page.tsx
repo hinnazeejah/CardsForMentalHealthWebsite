@@ -55,7 +55,7 @@ export default function Page() {
                     </Link>
                   </div>
                 </div>
-                <div className="flex flex-col items-center justify-center w-40 sm:w-36 lg:w-44 mt-12 sm:mt-0 sm:mr-20">
+                <div className="flex flex-col items-center justify-center w-40 sm:w-36 lg:w-44 mt-6 sm:mt-0 sm:mr-20">
                   <Image 
                     src="/cards4mentalhealth.png"
                     alt="Cards for Mental Health Logo"
