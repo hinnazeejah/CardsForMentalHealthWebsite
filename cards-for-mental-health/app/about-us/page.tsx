@@ -34,8 +34,8 @@ export default function AboutUsPage() {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="w-full md:w-1/2">
                 <Image
-                  src="/impact1.png"
-                  alt="Making an Impact"
+                  src="/founder.png"
+                  alt="Founder of Cards for Mental Health"
                   width={600}
                   height={400}
                   className="rounded-lg shadow-md"
