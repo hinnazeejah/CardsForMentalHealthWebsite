@@ -24,6 +24,7 @@ export default function Page() {
         <ScrollReveal>
           <section className="relative overflow-hidden bg-gradient-to-r from-emerald-800 to-green-700 min-h-screen sm:min-h-0">
             <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:20px_20px]" />
+            <ScrollIndicator />
             <div className="container relative mx-auto px-4 py-0 sm:py-24 sm:px-6 lg:px-8 min-h-[90vh] sm:min-h-0 flex flex-col justify-center">
               <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-8 sm:justify-between pt-16 sm:pt-0">
                 <div className="max-w-2xl text-center sm:text-left mt-0 sm:mt-0">
@@ -67,7 +68,6 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <ScrollIndicator />
           </section>
         </ScrollReveal>
 

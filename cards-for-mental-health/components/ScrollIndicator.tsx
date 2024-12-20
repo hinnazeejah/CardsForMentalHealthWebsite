@@ -23,17 +23,17 @@ export function ScrollIndicator() {
 
   return (
     <motion.div 
-      className="absolute bottom-20 left-1/2 -translate-x-1/2 text-white/80 sm:hidden text-center"
+      className="absolute bottom-28 left-1/2 -translate-x-1/2 text-white/70 sm:hidden text-center z-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1 }}
     >
-      <p className="text-sm font-light tracking-wider mb-2">Scroll to Explore</p>
+      <p className="text-xs font-light tracking-wider mb-1">Scroll to Explore</p>
       <motion.div 
-        className="flex justify-center space-x-1"
+        className="flex justify-center space-x-0.5"
         animate={{
           opacity: [0.5, 1, 0.5],
-          y: [0, -4, 0]
+          y: [0, 3, 0]
         }}
         transition={{
           duration: 2,
@@ -44,7 +44,7 @@ export function ScrollIndicator() {
         {[...Array(3)].map((_, i) => (
           <div 
             key={i} 
-            className="w-1.5 h-1.5 rounded-full bg-white/80"
+            className="w-1 h-1 rounded-full bg-white/70"
             style={{
               animationDelay: `${i * 0.2}s`
             }}
